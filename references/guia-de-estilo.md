@@ -9,6 +9,22 @@
 - **Corpus analisado:** {N peças, período, ex.: 8 contestações de 2024–2026}
 - **Última calibração:** {data}
 
+## 0. Formatação (reproduzir no `.docx` de saída)
+
+> Preencher inspecionando o `.docx` original (fonte, margens, entrelinha, alinhamento, negrito) — não o texto colado. Na redação, entregar `.docx` com esses parâmetros (skill `docx`), espelhando um modelo.
+
+| # | Regra | Valor observado |
+|---|-------|-----------------|
+| Z1 | Fonte do corpo | {ex.: Times New Roman 12 pt} |
+| Z2 | Entrelinha e recuo | {ex.: 1,5; sem recuo de 1ª linha} |
+| Z3 | Margens | {esq. / dir. / sup. / inf.} |
+| Z4 | Alinhamento do corpo | {ex.: justificado} |
+| Z5 | Endereçamento e "CONTESTAÇÃO" | {centralizado? negrito?} |
+| Z6 | Títulos de seção | {caixa alta? negrito? numeração?} |
+| Z7 | Ênfase no corpo | {o que vai a negrito / itálico} |
+| Z8 | Pedidos | {alíneas / bullets / recuo} |
+| Z9 | Bloco de assinatura | {centralizado? quais linhas} |
+
 ## 1. Estrutura
 
 | # | Regra | Exemplo do corpus |

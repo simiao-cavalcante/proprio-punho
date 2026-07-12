@@ -16,8 +16,8 @@ O nome diz a promessa: a minuta sai como se tivesse sido escrita **de próprio p
 | `references/perfil-do-autor.md` | Quem é o autor: papel, quem representa, bloco de assinatura, confidencialidade. Preenchido na **Etapa 0**. |
 | `references/guia-de-estilo.md` | O DNA do estilo: regras verificáveis extraídas das peças do autor. **Fonte da verdade na redação.** |
 | `references/anti-estilo.md` | O que o autor NUNCA escreve: expressões de IA proibidas, vetos pessoais e pares antes/depois. |
-| `references/analise-de-corpus.md` | O método de engenharia reversa em 3 camadas, usado no modo Calibração. |
-| `modelos/` | 1–2 peças reais do autor, anonimizadas e completas — o produto final montado, para consulta de forma e formatação. |
+| `references/analise-de-corpus.md` | O método de engenharia reversa em 4 camadas (formatação + estrutura + argumentação + frase), usado no modo Calibração. |
+| `modelos/` | 1–2 peças reais do autor, anonimizadas e completas, **em `.docx`** — o produto final montado, para consulta de forma, texto **e formatação** (fonte, margens, entrelinha, negrito). |
 
 > Checagem de estado, nesta ordem: (1) `perfil-do-autor.md` com placeholders `{...}` → rode a **Etapa 0 — Personalização** antes de qualquer coisa; (2) `guia-de-estilo.md` com placeholders → ofereça o **Modo 1 — Calibração** antes de redigir.
 
@@ -44,9 +44,9 @@ Quando o usuário pedir para analisar as peças dele, criar/atualizar o clone, o
 
 1. **Peça o corpus.** 5 a 10 peças do autor: versão final/protocolada, as melhores dele, e do MESMO gênero definido no perfil (contestação ≠ parecer). Poucas, recentes e boas > muitas e velhas.
 2. **Confira a anonimização.** Antes de processar, verifique se há nome de parte, CPF, endereço, número de processo ou dado sensível. Se houver, avise e ofereça anonimizar primeiro (AUTOR/RÉU, dados suprimidos). Não siga com dados sigilosos expostos.
-3. **Rode a engenharia reversa** seguindo `references/analise-de-corpus.md` (3 camadas: estrutura → argumentação → frase). Padrão de qualidade: **toda regra tem de ser verificável e vir com um exemplo literal extraído das peças**. "Estilo formal e objetivo" é análise de horóscopo — proibido.
-4. **Preencha `references/guia-de-estilo.md`** substituindo os placeholders pelas regras encontradas. Mostre o resultado ao usuário e pergunte o que ele veta ou ajusta.
-5. **Popule `modelos/`** com 1–2 peças do corpus (anonimizadas, inteiras) escolhidas pelo usuário.
+3. **Rode a engenharia reversa** seguindo `references/analise-de-corpus.md` (4 camadas: formatação → estrutura → argumentação → frase). Para a **formatação**, inspecione o `.docx` original (fonte, tamanho, margens, entrelinha, alinhamento, negrito dos títulos), não só o texto colado. Padrão de qualidade: **toda regra tem de ser verificável e vir com um exemplo literal extraído das peças**. "Estilo formal e objetivo" é análise de horóscopo — proibido.
+4. **Preencha `references/guia-de-estilo.md`** substituindo os placeholders pelas regras encontradas (incluindo a seção "0. Formatação"). Mostre o resultado ao usuário e pergunte o que ele veta ou ajusta.
+5. **Popule `modelos/`** com 1–2 peças do corpus escolhidas pelo usuário — **em `.docx`, anonimizadas mas com a formatação preservada** (não converta para texto puro; a forma faz parte do clone).
 6. **Teste cego.** Peça um caso real JÁ ENCERRADO do autor (só os fatos, sem a peça dele). Gere a minuta, depois compare com a peça que ele realmente protocolou, parágrafo a parágrafo. Cada divergência vira regra nova no guia ou par novo no anti-estilo. Repita até o autor dizer que passaria num teste cego com um colega.
 
 ## Modo 2 — Redação (uso diário)
@@ -55,10 +55,11 @@ Quando o usuário pedir qualquer texto jurídico:
 
 1. **Leia** `references/perfil-do-autor.md` (quem assina, quem representa, confidencialidade), `references/guia-de-estilo.md`, `references/anti-estilo.md` e ao menos um arquivo de `modelos/` ANTES de escrever. Endereçamento, preâmbulo e bloco de assinatura saem do perfil.
 2. **Entenda o caso** (fatos, tese, pedido). Se faltar informação essencial, pergunte antes de redigir.
-3. **Estruture** na ordem de seções do guia; **redija** seguindo as regras de argumentação e frase; **formate** como os modelos.
+3. **Estruture** na ordem de seções do guia; **redija** seguindo as regras de argumentação e frase.
 4. **Passe o pente-fino do anti-estilo**: releia a minuta caçando expressões proibidas e padrões de IA; reescreva cada ocorrência no estilo do autor (use os pares antes/depois como referência).
 5. **Jurisprudência e doutrina: nunca invente.** Cite apenas o que o usuário forneceu ou o que foi verificado em fonte confiável (se disponível, use a ferramenta de pesquisa jurisprudencial conectada). Toda citação não verificada sai da minuta ou entra marcada como `[CONFERIR NA FONTE: ...]`.
-6. **Entregue como rascunho.** Feche lembrando (uma linha, sem sermão) que a minuta exige revisão integral do autor antes de protocolar. Ofereça exportar em DOCX (skill `docx`) se fizer sentido.
+6. **Formate como o autor e entregue em `.docx`.** Aplique a seção "0. Formatação" do guia — fonte, tamanho, margens, entrelinha, alinhamento, negrito de endereçamento/título/seções — espelhando um arquivo de `modelos/`; gere o `.docx` pela skill `docx`. Não devolva no padrão do editor (Calibri 11, entrelinha simples): uma peça com a cara do autor também tem o layout dele.
+7. **Entregue como rascunho.** Feche lembrando (uma linha, sem sermão) que a minuta exige revisão integral do autor antes de protocolar.
 
 ## Modo 3 — Feedback contínuo (o clone melhora a cada peça)
 
