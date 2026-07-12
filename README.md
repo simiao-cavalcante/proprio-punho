@@ -24,7 +24,7 @@ Uma **skill** que ensina a IA a escrever com a **sua cara**: você monta um clon
 - 🧬 **Guia de estilo** — o DNA do seu texto em regras verificáveis (estrutura, argumentação, frase), cada uma com um exemplo real seu.
 - 🚫 **Anti-estilo** — a lista do que você **nunca** escreve + pares "antes/depois". É o que remove os vícios de IA e deixa o texto com a sua digital.
 
-> **A IA escreve. Você assina.** O clone reproduz a sua forma, não o seu juízo: a peça é sempre um rascunho para a sua revisão.
+> **A IA te auxilia a escrever e construir com a sua personalidade.** O clone reproduz a sua forma, não o seu juízo: a peça é sempre um rascunho para a sua revisão.
 
 ---
 
