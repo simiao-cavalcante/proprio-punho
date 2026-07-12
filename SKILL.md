@@ -58,7 +58,11 @@ Quando o usuário pedir qualquer texto jurídico:
 3. **Estruture** na ordem de seções do guia; **redija** seguindo as regras de argumentação e frase.
 4. **Passe o pente-fino do anti-estilo**: releia a minuta caçando expressões proibidas e padrões de IA; reescreva cada ocorrência no estilo do autor (use os pares antes/depois como referência).
 5. **Jurisprudência e doutrina: nunca invente.** Cite apenas o que o usuário forneceu ou o que foi verificado em fonte confiável (se disponível, use a ferramenta de pesquisa jurisprudencial conectada). Toda citação não verificada sai da minuta ou entra marcada como `[CONFERIR NA FONTE: ...]`.
-6. **Formate como o autor e entregue em `.docx`.** Aplique a seção "0. Formatação" do guia — fonte, tamanho, margens, entrelinha, alinhamento, negrito de endereçamento/título/seções — espelhando um arquivo de `modelos/`; gere o `.docx` pela skill `docx`. Não devolva no padrão do editor (Calibri 11, entrelinha simples): uma peça com a cara do autor também tem o layout dele.
+6. **Copie a formatação de um arquivo real do autor e entregue em `.docx`.** A formatação é parte do resultado, não um detalhe. Na ordem de preferência:
+   a. **Um `.docx` que o próprio usuário apresentar nesta conversa** (peça-base/template que ele anexar) — use-o como base: parta de uma cópia dele e substitua só o conteúdo, herdando estilos, fonte, margens, entrelinha, alinhamento, papel timbrado e negrito de títulos.
+   b. **Um arquivo de `modelos/`** — mesmo procedimento (copiar o arquivo e trocar o texto preserva a formatação melhor do que remontar do zero).
+   c. **Sem arquivo-base**, reconstrua a partir da seção "0. Formatação" do guia, pela skill `docx`.
+   Nunca devolva no padrão do editor (Calibri 11, entrelinha simples): uma peça com a cara do autor também tem o layout dele. Se o usuário apresentou o arquivo-base, confirme que a saída saiu na formatação dele.
 7. **Entregue como rascunho.** Feche lembrando (uma linha, sem sermão) que a minuta exige revisão integral do autor antes de protocolar.
 
 ## Modo 3 — Feedback contínuo (o clone melhora a cada peça)
