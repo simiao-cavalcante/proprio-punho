@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Próprio Punho — a IA escreve, você assina" width="100%">
+  <img src="assets/banner.png" alt="Próprio Punho — a IA te auxilia a escrever e construir com a sua personalidade" width="100%">
 </p>
 
 <h1 align="center">Próprio Punho — clone do seu estilo de escrita jurídica</h1>
