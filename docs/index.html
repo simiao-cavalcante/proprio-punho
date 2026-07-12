@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Próprio Punho — a IA escreve peças com a sua cara</title>
+<meta name="description" content="Skill gratuita de IA que clona o seu estilo de escrita jurídica: a minuta sai com a sua estrutura, o seu vocabulário e a sua voz — sem cara de ChatGPT. Você revisa e assina.">
+<meta property="og:title" content="Próprio Punho — a IA escreve peças com a sua cara">
+<meta property="og:description" content="A IA escreve. Você assina. Skill gratuita que clona seu estilo de escrita jurídica e humaniza a minuta feita com IA.">
+<meta property="og:image" content="https://simiao-cavalcante.github.io/proprio-punho/assets/banner.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f172a; --bg2:#131c33; --card:#1e293b; --line:rgba(96,165,250,.22);
+    --txt:#e2e8f0; --mut:#94a3b8; --blue:#60a5fa; --blue2:#3b82f6; --amber:#fbbf24;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--txt);font-family:'Sora',sans-serif;line-height:1.6}
+  a{color:var(--blue);text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:600;color:var(--txt)}
+  .brand img{width:36px;height:36px}
+  .gh-btn{border:1px solid var(--line);border-radius:100px;padding:8px 18px;font-size:14px;color:var(--mut)}
+  .gh-btn:hover{color:var(--txt);border-color:var(--blue)}
+
+  header.hero{
+    background:linear-gradient(rgba(15,23,42,.58),rgba(15,23,42,.93)),url('assets/hero-bg.png') center/cover;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{padding:84px 0 90px;text-align:center}
+  .hero h1{font-size:52px;font-weight:700;line-height:1.15;letter-spacing:-.5px}
+  .hero h1 em{font-style:normal;color:var(--amber)}
+  .hero p.sub{margin:22px auto 0;max-width:660px;color:var(--mut);font-size:19px}
+  .cta-row{margin-top:38px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;border-radius:12px;padding:15px 30px;font-weight:600;font-size:16px;transition:transform .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--blue2);color:#fff;box-shadow:0 8px 30px rgba(59,130,246,.35)}
+  .btn-ghost{border:1px solid var(--line);color:var(--txt)}
+  .hero .hint{margin-top:14px;font-size:13px;color:var(--mut)}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:-44px auto 0;position:relative;max-width:920px}
+  .stat{background:var(--bg2);padding:22px;text-align:center}
+  .stat b{display:block;font-size:26px;color:var(--blue)}
+  .stat span{font-size:13.5px;color:var(--mut)}
+
+  section{padding:78px 0}
+  h2{font-size:32px;font-weight:700;text-align:center;margin-bottom:14px}
+  .lead{text-align:center;color:var(--mut);max-width:640px;margin:0 auto 48px}
+
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px}
+  .step .n{width:42px;height:42px;border-radius:12px;background:rgba(96,165,250,.14);color:var(--blue);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:19px;margin-bottom:16px}
+  .step h3{font-size:18px;margin-bottom:8px}
+  .step p{font-size:14.5px;color:var(--mut)}
+
+  .fmt{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+  .fmt-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px 26px;display:flex;flex-direction:column}
+  .fmt-card .tag{color:var(--amber);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px}
+  .fmt-card h3{font-size:19px;margin-bottom:10px}
+  .fmt-card p{font-size:14.5px;color:var(--mut);flex:1}
+
+  .principio{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .principio blockquote{font-size:30px;font-weight:600;text-align:center;line-height:1.4}
+  .principio blockquote em{font-style:normal;color:var(--amber)}
+  .principio p{text-align:center;color:var(--mut);max-width:700px;margin:20px auto 0;font-size:15.5px}
+
+  .install{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+  .inst{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
+  .inst h3{font-size:17px;margin-bottom:12px;color:var(--blue)}
+  .inst p,.inst li{font-size:14.5px;color:var(--mut)}
+  .inst ol{padding-left:20px;display:grid;gap:6px}
+  code{background:rgba(2,6,23,.7);border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:13px;color:#93c5fd;font-family:ui-monospace,Menlo,monospace}
+  pre{background:rgba(2,6,23,.7);border:1px solid var(--line);border-radius:10px;padding:14px 16px;overflow-x:auto;margin-top:10px}
+  pre code{background:none;border:none;padding:0}
+
+  footer{border-top:1px solid var(--line);padding:40px 0 48px;text-align:center;color:var(--mut);font-size:14px}
+  footer .social{margin-top:10px;display:flex;gap:18px;justify-content:center}
+  @media(max-width:640px){.hero h1{font-size:34px}.principio blockquote{font-size:22px}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <div class="brand"><img src="https://raw.githubusercontent.com/simiao-cavalcante/proprio-punho/main/assets/logo.png" alt="logo" onerror="this.style.display='none'">Próprio Punho</div>
+    <a class="gh-btn" href="https://github.com/simiao-cavalcante/proprio-punho">Ver no GitHub →</a>
+  </nav>
+</div>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <h1>Peças com a <em>sua cara</em>,<br>não com cara de IA</h1>
+    <p class="sub">Uma skill gratuita que aprende o seu jeito de escrever e faz a IA redigir a minuta com a sua estrutura, o seu vocabulário e a sua voz. Você revisa e assina — do próprio punho.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://github.com/simiao-cavalcante/proprio-punho/raw/main/proprio-punho.skill">⬇ Baixar a skill (grátis)</a>
+      <a class="btn btn-ghost" href="#como">Como funciona</a>
+    </div>
+    <div class="hint">Arquivo .skill para Claude · código aberto (MIT) · sem cadastro · sem dependências</div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><b>6</b><span>passos: do corpus ao clone calibrado</span></div>
+    <div class="stat"><b>3</b><span>camadas: estrutura, argumentação e frase</span></div>
+    <div class="stat"><b>100%</b><span>seu estilo — sem "cara de ChatGPT"</span></div>
+    <div class="stat"><b>R$ 0</b><span>gratuita e de código aberto (MIT)</span></div>
+  </div>
+</div>
+
+<section id="como">
+  <div class="wrap">
+    <h2>Como funciona</h2>
+    <p class="lead">Você não ensina a IA a escrever "mais formal". Você ensina a IA a escrever <b>como você</b> — a partir das suas próprias peças.</p>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Personalize e reúna suas peças</h3><p>A skill começa perguntando quem assina, quem você representa e o que nunca escreve. Depois você junta de 5 a 10 peças suas, do mesmo gênero — anonimizadas.</p></div>
+      <div class="step"><div class="n">2</div><h3>A IA extrai o DNA do seu estilo</h3><p>Engenharia reversa em três camadas — estrutura, argumentação e frase — vira um guia de regras verificáveis, cada uma com exemplo tirado das suas peças.</p></div>
+      <div class="step"><div class="n">3</div><h3>Escreva com a sua cara</h3><p>Peça a minuta: ela sai com a sua ordem de seções, os seus conectivos e o seu jeito de argumentar. Você revisa, ajusta e assina. Cada correção sua o clone aprende.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Os três documentos do clone</h2>
+    <p class="lead">A skill guarda o seu estilo em arquivos vivos, que você edita e melhoram a cada peça.</p>
+    <div class="fmt">
+      <div class="fmt-card">
+        <div class="tag">Quem você é</div>
+        <h3>Perfil do autor</h3>
+        <p>Bloco de assinatura, quem você representa, onde atua e as suas regras de confidencialidade. É o que personaliza a skill para você já na primeira interação.</p>
+      </div>
+      <div class="fmt-card">
+        <div class="tag">O DNA</div>
+        <h3>Guia de estilo</h3>
+        <p>As regras verificáveis do seu jeito de escrever — ordem das seções, uso de jurisprudência, tamanho de frase, conectivos favoritos — cada uma com um exemplo real seu.</p>
+      </div>
+      <div class="fmt-card">
+        <div class="tag">O diferencial</div>
+        <h3>Anti-estilo</h3>
+        <p>A lista do que você <b>nunca</b> escreve: as expressões que denunciam texto de máquina e pares "antes/depois" que ensinam o modelo pelo exemplo. É o que tira a cara de IA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="principio">
+  <div class="wrap">
+    <blockquote>"A IA escreve. <em>Você assina.</em>"</blockquote>
+    <p>O clone reproduz a sua forma de escrever, não o seu juízo profissional. A peça é sempre um rascunho para a sua revisão: jurisprudência se confere na fonte antes de protocolar, e dado sigiloso de cliente não entra sem anonimização. A skill devolve o seu tempo — a responsabilidade continua sua.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Instalação em 2 minutos</h2>
+    <p class="lead">Baixe uma vez, monte o seu clone com as suas peças.</p>
+    <div class="install">
+      <div class="inst">
+        <h3>Claude (app ou web)</h3>
+        <ol>
+          <li>Baixe o arquivo <code>proprio-punho.skill</code></li>
+          <li>No Claude, abra <b>Configurações → Skills</b> (Capacidades)</li>
+          <li>Adicione o arquivo e diga "vamos montar meu estilo"</li>
+        </ol>
+      </div>
+      <div class="inst">
+        <h3>Claude Code</h3>
+        <p>Descompacte o <code>.skill</code> (é um zip) na pasta de skills:</p>
+        <pre><code>~/.claude/skills/proprio-punho/</code></pre>
+      </div>
+      <div class="inst">
+        <h3>Sem dependências</h3>
+        <p>Não instala nada: a skill é só texto (Markdown). O trabalho é da IA lendo as suas peças e o seu guia de estilo. Passo a passo no <a href="https://github.com/simiao-cavalcante/proprio-punho#readme">README</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Criado por <b>Simião Cavalcante</b> · código aberto sob licença MIT</div>
+    <div class="social">
+      <a href="https://github.com/simiao-cavalcante/proprio-punho">GitHub</a>
+      <a href="https://www.instagram.com/prof.simiao">Instagram @prof.simiao</a>
+      <a href="https://x.com/simiao_c">X @simiao_c</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
