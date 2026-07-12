@@ -68,6 +68,16 @@
   .principio blockquote em{font-style:normal;color:var(--amber)}
   .principio p{text-align:center;color:var(--mut);max-width:700px;margin:20px auto 0;font-size:15.5px}
 
+  .prova{display:grid;grid-template-columns:1.1fr 1fr;gap:44px;align-items:center}
+  .prova .print{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .prova .print img{width:100%;display:block}
+  .prova .side .tag{color:var(--amber);font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+  .prova .side h3{font-size:22px;margin-bottom:14px}
+  .prova .side p{color:var(--mut);font-size:15px;margin-bottom:18px}
+  .prova .facts{display:flex;flex-wrap:wrap;gap:10px}
+  .prova .fact{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:#93c5fd;background:rgba(2,6,23,.7);border:1px solid var(--line);border-radius:100px;padding:6px 14px}
+  @media(max-width:760px){.prova{grid-template-columns:1fr}}
+
   .install{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
   .inst{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px}
   .inst h3{font-size:17px;margin-bottom:12px;color:var(--blue)}
@@ -97,6 +107,7 @@
     <p class="sub">Uma skill gratuita que aprende o seu jeito de escrever e faz a IA redigir a minuta com a sua formatação, a sua estrutura, o seu vocabulário e a sua voz. Você revisa e assina — do próprio punho.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://github.com/simiao-cavalcante/proprio-punho/raw/main/proprio-punho.skill">⬇ Baixar a skill (grátis)</a>
+      <a class="btn btn-ghost" href="assets/guia-skill-propriopunho.pdf" target="_blank">📄 Ler o guia em PDF</a>
       <a class="btn btn-ghost" href="#como">Como funciona</a>
     </div>
     <div class="hint">Arquivo .skill para Claude · código aberto (MIT) · sem cadastro · sem dependências</div>
@@ -143,6 +154,26 @@
         <div class="tag">O diferencial</div>
         <h3>Anti-estilo</h3>
         <p>A lista do que você <b>nunca</b> escreve: as expressões que denunciam texto de máquina e pares "antes/depois" que ensinam o modelo pelo exemplo. É o que tira a cara de IA.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Prova real, não promessa</h2>
+    <p class="lead">Print de uma calibração de verdade, sem edição. É isso que a skill devolve depois de ler as suas próprias peças.</p>
+    <div class="prova">
+      <div class="print"><img src="assets/prova-real.png" alt="Print real do Claude descrevendo o estilo capturado do usuário: formatação Palatino Linotype 13, entrelinha 1,5, margens 3,6/2,6/3,5/2,5"></div>
+      <div class="side">
+        <div class="tag">O que saiu</div>
+        <h3>Detalhe, não adjetivo</h3>
+        <p>Nada de "estilo formal e objetivo". O guia captura a arquitetura das suas peças, como você cita jurisprudência, os conectivos que você repete — e agora também a formatação exata do documento.</p>
+        <div class="facts">
+          <span class="fact">Palatino Linotype 13</span>
+          <span class="fact">entrelinha 1,5</span>
+          <span class="fact">margens 3,6 / 2,6 / 3,5 / 2,5</span>
+        </div>
       </div>
     </div>
   </div>
